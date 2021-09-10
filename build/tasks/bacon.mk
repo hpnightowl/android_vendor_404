@@ -22,6 +22,6 @@ MD5 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/md5sum
 
 .PHONY: bacon
 bacon: $(INTERNAL_OTA_PACKAGE_TARGET)
-	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(P404_TARGET_PACKAGE)
+	$(hide) mv $(INTERNAL_OTA_PACKAGE_TARGET) $(P404_TARGET_PACKAGE)
 	$(hide) $(MD5) $(P404_TARGET_PACKAGE) | cut -d ' ' -f1 > $(P404_TARGET_PACKAGE).md5sum
 	@echo "Package Complete: $(P404_TARGET_PACKAGE)" >&2
